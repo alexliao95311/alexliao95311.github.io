@@ -28,15 +28,47 @@ header {
 section {
     max-width: 800px;
     margin: 20px auto;
-    padding: 20px;
+    padding: 30px;
     background-color: rgba(139, 253, 255, 0.355);
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
     border-radius: 15px;
-    overflow: hidden; /* Hides content that goes beyond the box */
+    overflow: hidden;
+    transition: padding 0.5s ease;
 }
 
-h1, h2, h3 {
-    color: #1a1a1a;
+section h2, section h3 {
+    font-size: 24px;
+    transition: font-size 0.5s ease;
+}
+
+section p {
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+section:hover {
+    background-color: rgba(255, 255, 255, 1);
+    transition: background-color 0.3s ease;
+    padding: 20px;
+}
+
+section:hover h2, section:hover h3 {
+    font-size: 20px;
+}
+
+section:hover p {
+    opacity: 1;
+}
+
+/* Initially hide the text in the section */
+section h3 {
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+/* Display the text on hover */
+section:hover h3 {
+    opacity: 1;
 }
 
 .qualities, .experience, .extracurriculars {
@@ -45,23 +77,6 @@ h1, h2, h3 {
 
 .experience-item, .extracurricular-item {
     margin-bottom: 10px;
-}
-
-/* Add a hover effect for sections */
-section:hover {
-    background-color: rgba(255, 255, 255, 1);
-    transition: background-color 0.3s ease;
-}
-
-/* Initially hide the text in the section */
-section p {
-    opacity: 0;
-    transition: opacity 0.5s ease;
-}
-
-/* Display the text on hover */
-section:hover p {
-    opacity: 1;
 }
 
 .navbar {
