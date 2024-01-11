@@ -1,7 +1,7 @@
 body {
     font-family: 'Arial', sans-serif;
     margin: 0;
-    padding: 0;
+    padding: 150px 0 0;
     background-image: url('https://img.freepik.com/free-photo/abstract-digital-grid-black-background_53876-97647.jpg?w=900&t=st=1705005741~exp=1705006341~hmac=9c65ee3b88a2e9b5e5e1009a9765856440b129dd05dc82d4e2fd5c9665e01a17');
     background-size: cover;
     background-repeat: no-repeat;
@@ -10,21 +10,26 @@ body {
 }
 
 header {
-    position: relative;
+    position: fixed;
     background-position: center;
     background-size: cover;
+    background-color: rgba(51, 51, 51, 0.8);
     background-attachment: fixed;
+    border-radius: 15px;
     color: #fff;
-    padding: 20px;
     text-align: center;
-    height: 100vh; /* Full viewport height for parallax effect */
+    width: 80%;
+    left: 10%;
+    top: 0;
+    z-index: 1000;
+    margin: 20px auto; 
 }
 
 section {
     max-width: 800px;
     margin: 20px auto;
     padding: 20px;
-    background-color: rgba(157, 223, 224, 0.5);
+    background-color: rgba(139, 253, 255, 0.355);
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
     border-radius: 15px;
 }
@@ -45,4 +50,30 @@ h1, h2, h3 {
 section:hover {
     background-color: rgba(255, 255, 255, 1);
     transition: background-color 0.3s ease;
+}
+
+.navbar {
+    background-color: #333;
+    padding: 10px;
+    text-align: center;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+}
+
+.navbar a {
+    color: white;
+    margin: 0 10px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.navbar a:hover {
+    color: #ddd;
+}
+
+.navbar p {
+    color: white;
+    margin: 0;
 }
