@@ -60,21 +60,6 @@ section:hover p {
     opacity: 1;
 }
 
-/* Initially hide the text in the section on mobile */
-@media only screen and (max-width: 768px) {
-    section {
-        padding: 20px;
-    }
-
-    section h2, section h3 {
-        font-size: 20px;
-    }
-
-    section p {
-        opacity: 1;
-    }
-}
-
 /* Initially hide the text in the section */
 section h3 {
     opacity: 0;
