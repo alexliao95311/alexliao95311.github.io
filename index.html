@@ -60,7 +60,19 @@
         </div>
     </section>
 
-
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Add click event to sections for mobile touch
+            const sections = document.querySelectorAll('section');
+    
+            sections.forEach(section => {
+                section.addEventListener('click', function () {
+                    this.classList.toggle('active');
+                });
+            });
+        });
+    </script>
+    
     
 </body>
 </html>

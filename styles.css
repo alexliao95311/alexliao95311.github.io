@@ -46,6 +46,20 @@ section p {
     transition: opacity 0.5s ease;
 }
 
+/* Updated styles for mobile touch */
+section.active {
+    padding: 20px;
+    cursor: default;
+}
+
+section.active h2, section.active h3 {
+    font-size: 20px;
+}
+
+section.active p {
+    opacity: 1;
+}
+
 section:hover {
     background-color: rgba(255, 255, 255, 1);
     transition: background-color 0.3s ease;
@@ -58,6 +72,22 @@ section:hover h2, section:hover h3 {
 
 section:hover p {
     opacity: 1;
+}
+
+/* Initially hide the text in the section on mobile */
+@media only screen and (max-width: 768px) {
+    section {
+        padding: 20px;
+        cursor: pointer; /* Add cursor pointer for touch devices */
+    }
+
+    section h2, section h3 {
+        font-size: 20px;
+    }
+
+    section p {
+        opacity: 1;
+    }
 }
 
 /* Initially hide the text in the section */
