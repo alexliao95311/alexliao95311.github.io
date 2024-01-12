@@ -73,6 +73,16 @@ section:hover h2, section:hover h3 {
 section:hover p {
     opacity: 1;
 }
+/* Style the links */
+a {
+    color: #3498db;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: #2980b9;
+}
 
 /* Initially hide the text in the section on mobile */
 @media only screen and (max-width: 768px) {
@@ -101,11 +111,11 @@ section:hover h3 {
     opacity: 1;
 }
 
-.qualities, .experience, .extracurriculars {
+.qualities, .experience, .extracurriculars, .projects {
     margin-bottom: 20px;
 }
 
-.experience-item, .extracurricular-item {
+.experience-item, .extracurricular-item, .project-item {
     margin-bottom: 10px;
 }
 
