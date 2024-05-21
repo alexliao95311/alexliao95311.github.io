@@ -33,7 +33,7 @@ section {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
     border-radius: 15px;
     overflow: hidden;
-    transition: padding 0.5s ease;
+    transition: background-color 0.3s ease, padding 0.5s ease;
 }
 
 section h2, section h3 {
@@ -42,27 +42,12 @@ section h2, section h3 {
 }
 
 section p {
-    opacity: 0;
-    transition: opacity 0.5s ease;
-}
-
-/* Updated styles for mobile touch */
-section.active {
-    padding: 20px;
-    cursor: default;
-}
-
-section.active h2, section.active h3 {
-    font-size: 20px;
-}
-
-section.active p {
     opacity: 1;
+    transition: opacity 0.5s ease;
 }
 
 section:hover {
     background-color: rgba(255, 255, 255, 1);
-    transition: background-color 0.3s ease;
     padding: 20px;
 }
 
@@ -73,9 +58,10 @@ section:hover h2, section:hover h3 {
 section:hover p {
     opacity: 1;
 }
+
 /* Style the links */
 a {
-    color: #3498db;
+    color: #082e47;
     text-decoration: none;
     transition: color 0.3s ease;
 }
@@ -84,11 +70,11 @@ a:hover {
     color: #2980b9;
 }
 
-/* Initially hide the text in the section on mobile */
+/* Responsive adjustments for mobile */
 @media only screen and (max-width: 768px) {
     section {
         padding: 20px;
-        cursor: pointer; /* Add cursor pointer for touch devices */
+        cursor: pointer;
     }
 
     section h2, section h3 {
@@ -98,17 +84,6 @@ a:hover {
     section p {
         opacity: 1;
     }
-}
-
-/* Initially hide the text in the section */
-section h3 {
-    opacity: 0;
-    transition: opacity 0.5s ease;
-}
-
-/* Display the text on hover */
-section:hover h3 {
-    opacity: 1;
 }
 
 .qualities, .experience, .extracurriculars, .projects {
