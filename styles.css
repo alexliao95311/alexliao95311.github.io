@@ -119,3 +119,19 @@ a:hover {
     color: white;
     margin: 0;
 }
+
+/* Container to center the image */
+.image-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  /* Styling the image */
+  .rounded-image {
+    width: 600px;  /* Set the desired width */
+    height: 600px; /* Set the desired height */
+    border-radius: 5%; /* Makes the image round */
+    object-fit: cover; /* Ensures the image covers the entire area */
+  }
+  
