@@ -3,84 +3,501 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Alex Liao - Portfolio</title>
+    <title>Alex Liao - Software Developer & Problem Solver</title>
     <link rel="stylesheet" href="styles.css">
-
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <span>Alex Liao</span>
+            </div>
+            <div class="nav-menu">
+                <a href="#about" class="nav-link">About</a>
+                <a href="#projects" class="nav-link">Projects</a>
+                <a href="#skills" class="nav-link">Skills</a>
+                <a href="#experience" class="nav-link">Experience</a>
+                <a href="#contact" class="nav-link">Contact</a>
+            </div>
+        </div>
+    </nav>
 
-    <header>
-        <h1 style="color: white;">Alex Liao</h1>
-        <p>15 years | 9th grade</p>
-    </header>
-
-    <section class="qualities">
-        <h2>Qualities</h2>
-        <p>Problem solver, dedicated, critical thinker.</p>
-        <p>“If you want to be the best, you have to do things that other people aren’t willing to do.” - Michael Phelps</p>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1 class="hero-title">
+                        Hi, I'm <span class="highlight">Alex Liao</span>
+                    </h1>
+                    <h2 class="hero-subtitle">Founder of DebateSim | Aspiring Software Engineer</h2>
+                    <p class="hero-description">
+                        Junior at Emerald High (Dublin, CA) who codes full-stack apps, swims competitively, 
+                        plays classical piano, and co-founded the school's debate club. Building next-generation 
+                        civic engagement technology and always open to new projects—let's connect!
+                    </p>
+                    <div class="hero-buttons">
+                        <a href="#projects" class="btn btn-primary">View My Work</a>
+                        <a href="https://drive.google.com/file/d/1Mk1rlT3nLkQGvvmojSlJt5YD7saiRqDd/view?usp=sharing" target="_blank" class="btn btn-secondary">Download Resume</a>
+                    </div>
+                    <div class="hero-links">
+                        <a href="https://github.com/alexliao95311" target="_blank" class="social-link">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="https://leetcode.com/the_coder5311/" target="_blank" class="social-link">
+                            <i class="fas fa-code"></i>
+                        </a>
+                        <a href="mailto:alexliao95311@gmail.com" class="social-link">
+                            <i class="fas fa-envelope"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <div class="image-container">
+                        <div class="profile-card">
+                            <div class="profile-image">
+                                <i class="fas fa-user-circle"></i>
+                            </div>
+                            <div class="profile-info">
+                                <h3>Alex Liao</h3>
+                                <p>Software Developer</p>
+                                <div class="profile-stats">
+                                    <div class="stat">
+                                        <span class="stat-number">15</span>
+                                        <span class="stat-label">Years Old</span>
+                                    </div>
+                                    <div class="stat">
+                                        <span class="stat-number">10+</span>
+                                        <span class="stat-label">Projects</span>
+                                    </div>
+                                    <div class="stat">
+                                        <span class="stat-number">5+</span>
+                                        <span class="stat-label">Languages</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </section>
 
-    <section class="portfolio">
-        <h2>Portfolio</h2>
-        <p><a href="/projects.html" target="_blank"><u>Projects Page</u></a></p>
-        <p><a href="https://drive.google.com/file/d/1Mk1rlT3nLkQGvvmojSlJt5YD7saiRqDd/view?usp=sharing" target="_blank"><u>Resume Page</u></a></p>
-    </section>
-    <section class="links">
-        <h2>Links</h2>
-        <p><a href="https://github.com/alexliao95311" target="_blank"><u>GitHub</u></a></p>
-        <p><a href="https://leetcode.com/the_coder5311/" target="_blank"><u>LeetCode</u></a></p>
-        
-    </section>
-    <section class="experience">
-        <h2>Coding Experience</h2>
-        <div class="experience-item">
-            <h3>USACO Silver</h3>
-            <p>Achieved USACO Silver level in competitive programming.</p>
-        </div>
-        <div class="experience-item">
-            <h3>Languages</h3>
-            <p>Has worked with many projects in Python, Java, HTML, CSS, and Javascript.</p>
-        </div>
-        <div class="experience-item">
-            <h3>Tools</h3>
-            <p>Familiar with new ML tools such as TensorFlow, PyTorch, and transformer models.</p>
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <h2 class="section-title">About Me</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p class="about-description">
+                        I'm a junior at Emerald High School (Dublin, CA) with a passion for building innovative solutions 
+                        to real-world problems. As the founder of DebateSim, I'm building next-generation civic engagement 
+                        technology that democratizes access to legislative analysis and enhances critical thinking through AI-powered tools.
+                    </p>
+                    <p class="about-description">
+                        My journey spans from competitive programming (USACO Silver) to full-stack development, AI integration, 
+                        and civic technology. I've architected multi-model AI systems integrating GPT-4o, Claude, Gemini, and LLaMA, 
+                        processing 40,000+ character legislative documents and serving live users at debatesim.us.
+                    </p>
+                    <p class="about-description">
+                        When I'm not coding, you'll find me in the pool training for swimming competitions, 
+                        practicing piano for Carnegie Hall performances, or preparing debate cases for national tournaments. 
+                        These diverse interests fuel my creativity, discipline, and communication skills.
+                    </p>
+                    <div class="quote">
+                        <i class="fas fa-quote-left"></i>
+                        <p>"If you want to be the best, you have to do things that other people aren't willing to do."</p>
+                        <cite>- Michael Phelps</cite>
+                    </div>
+                </div>
+                <div class="about-highlights">
+                    <div class="highlight-card">
+                        <i class="fas fa-code"></i>
+                        <h3>Problem Solver</h3>
+                        <p>Passionate about tackling complex challenges with elegant solutions</p>
+                    </div>
+                    <div class="highlight-card">
+                        <i class="fas fa-brain"></i>
+                        <h3>Critical Thinker</h3>
+                        <p>Analytical approach to debugging and system design</p>
+                    </div>
+                    <div class="highlight-card">
+                        <i class="fas fa-trophy"></i>
+                        <h3>Dedicated</h3>
+                        <p>Committed to continuous learning and improvement</p>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
-    <section class="education">
-        <h2>Education</h2>
-        <p>Current School: Emerald High School</p>
+    <!-- Projects Section -->
+    <section id="projects" class="projects">
+        <div class="container">
+            <h2 class="section-title">Featured Projects</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="images/notepad.png" alt="Notepad2- Project">
+                    </div>
+                    <div class="project-content">
+                        <h3>Notepad2-</h3>
+                        <p>A modern note-taking application built with clean, intuitive design principles.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">GUI</span>
+                            <span class="tech-tag">File Management</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/Emerald-Dream-Team/notepad2-" target="_blank" class="project-link">
+                                <i class="fab fa-github"></i> View Code
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="images/emeraldai.png" alt="EmeraldAI Project">
+                    </div>
+                    <div class="project-content">
+                        <h3>EmeraldAI</h3>
+                        <p>AI-powered Discord bot capable of generating images and text using advanced machine learning models.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">Discord API</span>
+                            <span class="tech-tag">AI/ML</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/alexliao95311/EmeraldAI" target="_blank" class="project-link">
+                                <i class="fab fa-github"></i> View Code
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-image">
+                        <div class="project-placeholder">
+                            <i class="fas fa-robot"></i>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <h3>DebateSim</h3>
+                        <p>AI-powered legislative analysis platform integrating 4+ LLM providers, real-time Congressional data, and intelligent debate simulation. Processing 40,000+ character documents and serving live users.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">React</span>
+                            <span class="tech-tag">FastAPI</span>
+                            <span class="tech-tag">GPT-4o</span>
+                            <span class="tech-tag">Claude</span>
+                            <span class="tech-tag">Gemini</span>
+                            <span class="tech-tag">LLaMA</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://debatesim.us" target="_blank" class="project-link">
+                                <i class="fas fa-external-link-alt"></i> Live Demo
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-image">
+                        <div class="project-placeholder">
+                            <i class="fas fa-utensils"></i>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <h3>DigiMenu</h3>
+                        <p>1st Place winner at Chinatown Hacks! Web app utilizing Claude OCR to digitize Chinatown restaurant menus and translate them for improved accessibility and outreach.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">React</span>
+                            <span class="tech-tag">Claude OCR</span>
+                            <span class="tech-tag">Translation API</span>
+                            <span class="tech-tag">Web App</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="project-link">
+                                <i class="fas fa-trophy"></i> Hackathon Winner
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-image">
+                        <div class="project-placeholder">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <h3>Bias Detector</h3>
+                        <p>2nd Place winner at BISV Hackathon! AI-powered browser extension and web app that scans online articles and social media posts for potential misleading information.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Chrome Extension</span>
+                            <span class="tech-tag">AI/ML</span>
+                            <span class="tech-tag">LangChain</span>
+                            <span class="tech-tag">Web App</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="project-link">
+                                <i class="fas fa-medal"></i> 2nd Place Winner
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="projects-cta">
+                <a href="/projects.html" class="btn btn-outline">View All Projects</a>
+            </div>
+        </div>
     </section>
 
-    <section class="extracurriculars">
-        <h2>Extracurriculars</h2>
-        <div class="extracurricular-item">
-            <h3>Swimming</h3>
-            <p>Achieved A times in swimming, sectionally ranked top 500.</p>
-        </div>
-        <div class="extracurricular-item">
-            <h3>Piano</h3>
-            <p>Carnegie Hall performer in piano, multiple-time medalist in US Open Competitions.</p>
-        </div>
-        <div class="extracurricular-item">
-            <h3>Debate</h3>
-            <p>Public forum debater, championed in the TOC Digital Debate Series #1</p>
+    <!-- Skills Section -->
+    <section id="skills" class="skills">
+        <div class="container">
+            <h2 class="section-title">Technical Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3>Programming Languages</h3>
+                    <div class="skill-items">
+                        <span class="skill-item">Python</span>
+                        <span class="skill-item">JavaScript</span>
+                        <span class="skill-item">Java</span>
+                        <span class="skill-item">C/C++</span>
+                        <span class="skill-item">HTML/CSS</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3>Frameworks & Tools</h3>
+                    <div class="skill-items">
+                        <span class="skill-item">React</span>
+                        <span class="skill-item">FastAPI</span>
+                        <span class="skill-item">Firebase</span>
+                        <span class="skill-item">LangChain</span>
+                        <span class="skill-item">Azure</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3>AI/ML</h3>
+                    <div class="skill-items">
+                        <span class="skill-item">OpenRouter API</span>
+                        <span class="skill-item">TensorFlow</span>
+                        <span class="skill-item">PyTorch</span>
+                        <span class="skill-item">Model Orchestration</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3>Other</h3>
+                    <div class="skill-items">
+                        <span class="skill-item">Git/GitHub</span>
+                        <span class="skill-item">SQL/NoSQL</span>
+                        <span class="skill-item">API Integration</span>
+                        <span class="skill-item">Competitive Programming</span>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="experience">
+        <div class="container">
+            <h2 class="section-title">Experience & Leadership</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <h3>DebateSim</h3>
+                        <h4>Founder & Full-Stack Developer</h4>
+                        <p>Jan 2025 - Present | Led end-to-end development of AI-powered legislative analysis platform. 
+                        Architected multi-model AI systems with GPT-4o, Claude, Gemini, and LLaMA integration, 
+                        processing 40,000+ character legislative documents and serving live users at debatesim.us.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <h3>Emerald High Debate Club</h3>
+                        <h4>Treasurer & Co-founder</h4>
+                        <p>Aug 2023 - Jun 2025 | Established the school's first debate club, expanding membership from 
+                        a handful of students to 300+ active debaters. Managed tournament registrations, membership dues, 
+                        and fundraising revenue, maintaining audit-ready records.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <h3>Mathematics Tutoring</h3>
+                        <h4>MATHCOUNTS & GLIFY Mentor</h4>
+                        <p>Sep 2024 - Jan 2025 | Coached Fallon Middle School MATHCOUNTS team and led AMC 8 bootcamp sessions. 
+                        Created lesson materials, practice problems, and provided feedback to improve competitive math skills.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <h3>Academic Excellence</h3>
+                        <h4>Emerald High School</h4>
+                        <p>Aug 2023 - Jun 2027 | Grade 11 | Honors Chamber Orchestra, Varsity Swim, Public Forum Debate. 
+                        Maintaining strong academic performance while pursuing advanced coursework in computer science and mathematics.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Achievements Section -->
+    <section class="achievements">
+        <div class="container">
+            <h2 class="section-title">Achievements & Recognition</h2>
+            <div class="achievements-grid">
+                <div class="achievement-card">
+                    <div class="achievement-icon">
+                        <i class="fas fa-trophy"></i>
+                    </div>
+                    <h3>Hackathon Champion</h3>
+                    <p>1st Place at Chinatown Hacks (DigiMenu), 2nd Place at BISV Hackathon (Bias Detector). Won tickets to Nvidia GTC!</p>
+                    <div class="achievement-image">
+                        <div class="achievement-img"></div>
+                    </div>
+                </div>
+                <div class="achievement-card">
+                    <div class="achievement-icon">
+                        <i class="fas fa-music"></i>
+                    </div>
+                    <h3>Piano Excellence</h3>
+                    <p>US Open Piano Competition Winner, Carnegie Hall Performer, Certificate of Merit Level 10 with State Honors, CCMTAC Sonata Competition Winner.</p>
+                    <div class="achievement-image">
+                        <div class="achievement-img"></div>
+                    </div>
+                </div>
+                <div class="achievement-card">
+                    <div class="achievement-icon">
+                        <i class="fas fa-comments"></i>
+                    </div>
+                    <h3>Debate Leadership</h3>
+                    <p>California State Championships Qualifier, TOC Digital Debate Series Champion, Co-founded school's first debate club (300+ members).</p>
+                    <div class="achievement-image">
+                        <div class="achievement-img"></div>
+                    </div>
+                </div>
+                <div class="achievement-card">
+                    <div class="achievement-icon">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <h3>Tech Innovation</h3>
+                    <p>USACO Silver level, Founder of DebateSim (debatesim.us), Full-stack developer with 4+ LLM integration, Processing 40,000+ character documents.</p>
+                    <div class="achievement-image">
+                        <div class="achievement-img"></div>
+                    </div>
+                </div>
+                <div class="achievement-card">
+                    <div class="achievement-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <h3>Academic Honors</h3>
+                    <p>Bronze Presidential Volunteer Service Award (50+ hours), Honors Chamber Orchestra, Varsity Swim, Grade 11 at Emerald High.</p>
+                    <div class="achievement-image">
+                        <div class="achievement-img"></div>
+                    </div>
+                </div>
+                <div class="achievement-card">
+                    <div class="achievement-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3>Community Impact</h3>
+                    <p>Mathematics tutor for MATHCOUNTS & GLIFY, Debate mentor for middle school students, Created lesson materials and practice problems.</p>
+                    <div class="achievement-image">
+                        <div class="achievement-img"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title">Let's Connect</h2>
+            <div class="contact-content">
+                <div class="contact-text">
+                    <p>I'm always interested in new opportunities, collaborations, and meaningful conversations about technology and innovation.</p>
+                </div>
+                <div class="contact-links">
+                    <a href="mailto:alexliao95311@gmail.com" class="contact-link">
+                        <i class="fas fa-envelope"></i>
+                        <span>alexliao95311@gmail.com</span>
+                    </a>
+                    <a href="https://github.com/alexliao95311" target="_blank" class="contact-link">
+                        <i class="fab fa-github"></i>
+                        <span>GitHub</span>
+                    </a>
+                    <a href="https://leetcode.com/the_coder5311/" target="_blank" class="contact-link">
+                        <i class="fas fa-code"></i>
+                        <span>LeetCode</span>
+                    </a>
+                    <a href="https://drive.google.com/file/d/1Mk1rlT3nLkQGvvmojSlJt5YD7saiRqDd/view?usp=sharing" target="_blank" class="contact-link">
+                        <i class="fas fa-file-pdf"></i>
+                        <span>Resume</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 Alex Liao. All rights reserved.</p>
+        </div>
+    </footer>
 
     <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            // Add click event to sections for mobile touch
-            const sections = document.querySelectorAll('section');
-    
-            sections.forEach(section => {
-                section.addEventListener('click', function () {
-                    this.classList.toggle('active');
-                });
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
             });
         });
+
+        // Add scroll effect to navbar
+        window.addEventListener('scroll', () => {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 100) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Add animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate-in');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.project-card, .achievement-card, .timeline-item').forEach(el => {
+            observer.observe(el);
+        });
     </script>
-    
-    
 </body>
 </html>

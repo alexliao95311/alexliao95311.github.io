@@ -3,33 +3,383 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Projects</title>
+    <title>Projects - Alex Liao</title>
     <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <header>
-        <h1 style="color: white;">Alex Liao</h1>
-        <p>15 years | 9th grade</p>
-    </header>
-    <section class="projects">
-        <h2>Projects</h2>
-        <p><a href="/"><u>Back to Home</u></a></p>
-        <div class="project-item">
-            <h3>NotePad2-</h3>
-            <a href="https://github.com/Emerald-Dream-Team/notepad2-" target="_blank"><u>GitHub Link</u></a>
-            <p>Created a simplistic and useful note-taking software.</p>
-            <div class="image-container">
-                <img src="images/notepad.png" alt="Notepad2-" class="rounded-image">
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="/" style="text-decoration: none; color: inherit;">
+                    <span>Alex Liao</span>
+                </a>
+            </div>
+            <div class="nav-menu">
+                <a href="/#about" class="nav-link">About</a>
+                <a href="/#projects" class="nav-link">Projects</a>
+                <a href="/#skills" class="nav-link">Skills</a>
+                <a href="/#experience" class="nav-link">Experience</a>
+                <a href="/#contact" class="nav-link">Contact</a>
             </div>
         </div>
-        <div class="project-item">
-            <h3>EmeraldAI</h3>
-            <a href="https://github.com/alexliao95311/EmeraldAI" target="_blank"><u>GitHub Link</u></a>
-            <p>Developed an AI discord bot that can generate images and text</p>
-            <div class="image-container">
-                <img src="images/emeraldai.png" alt="EmeraldAI" class="rounded-image">
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1 class="hero-title">My <span class="highlight">Projects</span></h1>
+                    <h2 class="hero-subtitle">Building Solutions That Matter</h2>
+                    <p class="hero-description">
+                        A collection of my work spanning web development, AI integration, and problem-solving applications. 
+                        Each project represents a step forward in my journey as a developer.
+                    </p>
+                    <div class="hero-buttons">
+                        <a href="/#contact" class="btn btn-primary">Get In Touch</a>
+                        <a href="/" class="btn btn-secondary">Back to Home</a>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <div class="image-container">
+                        <div class="profile-card">
+                            <div class="profile-image">
+                                <i class="fas fa-code"></i>
+                            </div>
+                            <div class="profile-info">
+                                <h3>Featured Work</h3>
+                                <p>Full-Stack Developer</p>
+                                <div class="profile-stats">
+                                    <div class="stat">
+                                        <span class="stat-number">10+</span>
+                                        <span class="stat-label">Projects</span>
+                                    </div>
+                                    <div class="stat">
+                                        <span class="stat-number">5+</span>
+                                        <span class="stat-label">Technologies</span>
+                                    </div>
+                                    <div class="stat">
+                                        <span class="stat-number">100%</span>
+                                        <span class="stat-label">Passion</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
+
+    <!-- Projects Section -->
+    <section class="projects">
+        <div class="container">
+            <h2 class="section-title">Featured Projects</h2>
+            
+            <!-- Notepad2- Project -->
+            <div class="project-detail">
+                <div class="project-detail-content">
+                    <div class="project-detail-image">
+                        <img src="images/notepad.png" alt="Notepad2- Project">
+                    </div>
+                    <div class="project-detail-text">
+                        <h3>Notepad2-</h3>
+                        <p class="project-description">
+                            A modern, intuitive note-taking application built with Python and Tkinter. 
+                            Features include file management, syntax highlighting, and a clean user interface 
+                            designed for productivity and ease of use.
+                        </p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">Tkinter</span>
+                            <span class="tech-tag">GUI Development</span>
+                            <span class="tech-tag">File Management</span>
+                        </div>
+                        <div class="project-features">
+                            <h4>Key Features:</h4>
+                            <ul>
+                                <li>Clean, modern interface</li>
+                                <li>File save/load functionality</li>
+                                <li>Text formatting options</li>
+                                <li>Cross-platform compatibility</li>
+                            </ul>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/Emerald-Dream-Team/notepad2-" target="_blank" class="project-link">
+                                <i class="fab fa-github"></i> View Source Code
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- EmeraldAI Project -->
+            <div class="project-detail">
+                <div class="project-detail-content">
+                    <div class="project-detail-image">
+                        <img src="images/emeraldai.png" alt="EmeraldAI Project">
+                    </div>
+                    <div class="project-detail-text">
+                        <h3>EmeraldAI</h3>
+                        <p class="project-description">
+                            An advanced AI-powered Discord bot that leverages machine learning models to generate 
+                            images and text responses. Built with modern Python libraries and integrated with 
+                            Discord's API for seamless user interaction.
+                        </p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">Discord API</span>
+                            <span class="tech-tag">AI/ML</span>
+                            <span class="tech-tag">OpenAI</span>
+                            <span class="tech-tag">Image Generation</span>
+                        </div>
+                        <div class="project-features">
+                            <h4>Key Features:</h4>
+                            <ul>
+                                <li>AI-powered text generation</li>
+                                <li>Image generation capabilities</li>
+                                <li>Discord slash commands</li>
+                                <li>Real-time response processing</li>
+                                <li>Error handling and logging</li>
+                            </ul>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/alexliao95311/EmeraldAI" target="_blank" class="project-link">
+                                <i class="fab fa-github"></i> View Source Code
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- DebateSim Project -->
+            <div class="project-detail">
+                <div class="project-detail-content">
+                    <div class="project-detail-image">
+                        <div class="project-placeholder">
+                            <i class="fas fa-robot"></i>
+                        </div>
+                    </div>
+                    <div class="project-detail-text">
+                        <h3>DebateSim</h3>
+                        <p class="project-description">
+                            A comprehensive AI-powered platform for structured debate and legislative analysis. 
+                            Led end-to-end development integrating 4+ LLM providers (GPT-4o, Claude, Gemini, LLaMA), 
+                            real-time Congressional data, and intelligent debate simulation. Processing 40,000+ character 
+                            legislative documents and serving live users at debatesim.us.
+                        </p>
+                        <div class="project-tech">
+                            <span class="tech-tag">React</span>
+                            <span class="tech-tag">FastAPI</span>
+                            <span class="tech-tag">GPT-4o</span>
+                            <span class="tech-tag">Claude</span>
+                            <span class="tech-tag">Gemini</span>
+                            <span class="tech-tag">LLaMA</span>
+                            <span class="tech-tag">LangChain</span>
+                        </div>
+                        <div class="project-features">
+                            <h4>Key Features:</h4>
+                            <ul>
+                                <li>Multi-model AI systems with 4+ LLM integration</li>
+                                <li>Real-time Congressional data processing</li>
+                                <li>AI judge evaluation systems for objective assessment</li>
+                                <li>40,000+ character legislative document processing</li>
+                                <li>Scalable infrastructure serving live users</li>
+                                <li>Democratizing access to legislative analysis</li>
+                            </ul>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://debatesim.us" target="_blank" class="project-link">
+                                <i class="fas fa-external-link-alt"></i> Live Demo
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- DigiMenu Project -->
+            <div class="project-detail">
+                <div class="project-detail-content">
+                    <div class="project-detail-image">
+                        <div class="project-placeholder">
+                            <i class="fas fa-utensils"></i>
+                        </div>
+                    </div>
+                    <div class="project-detail-text">
+                        <h3>DigiMenu</h3>
+                        <p class="project-description">
+                            <strong>1st Place Winner at Chinatown Hacks!</strong> A web application that utilizes Claude OCR 
+                            to help digitize Chinatown restaurant menus and translate them to improve small business outreach 
+                            and accessibility. Won tickets to Nvidia GTC conference.
+                        </p>
+                        <div class="project-tech">
+                            <span class="tech-tag">React</span>
+                            <span class="tech-tag">Claude OCR</span>
+                            <span class="tech-tag">Translation API</span>
+                            <span class="tech-tag">Web App</span>
+                            <span class="tech-tag">Hackathon Winner</span>
+                        </div>
+                        <div class="project-features">
+                            <h4>Key Features:</h4>
+                            <ul>
+                                <li>Claude OCR for menu digitization</li>
+                                <li>Multi-language translation support</li>
+                                <li>Small business accessibility improvement</li>
+                                <li>Real-time menu processing</li>
+                                <li>User-friendly interface</li>
+                                <li>Hackathon-winning innovation</li>
+                            </ul>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="project-link">
+                                <i class="fas fa-trophy"></i> 1st Place Winner
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bias Detector Project -->
+            <div class="project-detail">
+                <div class="project-detail-content">
+                    <div class="project-detail-image">
+                        <div class="project-placeholder">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                    </div>
+                    <div class="project-detail-text">
+                        <h3>Bias Detector</h3>
+                        <p class="project-description">
+                            <strong>2nd Place Winner at BISV Hackathon!</strong> An AI-powered browser extension and web app 
+                            that scans online articles and social media posts for potential misleading information. 
+                            Built with LangChain and advanced AI models for accurate bias detection.
+                        </p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Chrome Extension</span>
+                            <span class="tech-tag">AI/ML</span>
+                            <span class="tech-tag">LangChain</span>
+                            <span class="tech-tag">Web App</span>
+                            <span class="tech-tag">2nd Place Winner</span>
+                        </div>
+                        <div class="project-features">
+                            <h4>Key Features:</h4>
+                            <ul>
+                                <li>Real-time bias detection in articles</li>
+                                <li>Social media post analysis</li>
+                                <li>Chrome extension integration</li>
+                                <li>AI-powered misinformation detection</li>
+                                <li>User-friendly bias scoring</li>
+                                <li>Hackathon-winning innovation</li>
+                            </ul>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="project-link">
+                                <i class="fas fa-medal"></i> 2nd Place Winner
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Additional Projects -->
+            <div class="additional-projects">
+                <h3>Other Notable Projects</h3>
+                <div class="mini-projects-grid">
+                    <div class="mini-project-card">
+                        <h4>Bias Detector</h4>
+                        <p>Chrome extension for fact-checking and bias detection in sources and AI outputs.</p>
+                        <div class="mini-tech">
+                            <span class="tech-tag">Chrome Extension</span>
+                            <span class="tech-tag">LangChain</span>
+                        </div>
+                    </div>
+                    <div class="mini-project-card">
+                        <h4>Housing Match AI</h4>
+                        <p>Prototype AI system to match low-income individuals with suitable housing options.</p>
+                        <div class="mini-tech">
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">Machine Learning</span>
+                        </div>
+                    </div>
+                    <div class="mini-project-card">
+                        <h4>TI-84 VSEPR Program</h4>
+                        <p>Calculator program for VSEPR theory calculations and molecular geometry predictions.</p>
+                        <div class="mini-tech">
+                            <span class="tech-tag">TI-Basic</span>
+                            <span class="tech-tag">Chemistry</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Interested in Working Together?</h2>
+                <p>I'm always excited to collaborate on new projects and explore innovative solutions.</p>
+                <div class="cta-buttons">
+                    <a href="/#contact" class="btn btn-primary">Get In Touch</a>
+                    <a href="https://drive.google.com/file/d/1Mk1rlT3nLkQGvvmojSlJt5YD7saiRqDd/view?usp=sharing" target="_blank" class="btn btn-secondary">View Resume</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 Alex Liao. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add scroll effect to navbar
+        window.addEventListener('scroll', () => {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 100) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Add animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate-in');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.project-detail, .mini-project-card').forEach(el => {
+            observer.observe(el);
+        });
+    </script>
 </body>
 </html>
