@@ -262,6 +262,12 @@
             color: var(--pink);
         }
 
+        .archive-btn.is-today {
+            border-color: var(--pink);
+            color: var(--pink);
+            font-weight: 500;
+        }
+
         .archive-btn.is-viewed::after {
             content: " · opened";
             color: var(--pink);
@@ -679,8 +685,7 @@
             function buildArchive() {
                 const todayUnlock = getTodayUnlockDate();
                 const unlocked = cards.filter(function (c) {
-                    const d = c.dataset.unlock;
-                    return isUnlocked(d) && d !== todayUnlock;
+                    return isUnlocked(c.dataset.unlock);
                 });
 
                 archiveList.innerHTML = '';
@@ -696,6 +701,7 @@
                     const btn = document.createElement('button');
                     btn.type = 'button';
                     btn.className = 'archive-btn';
+                    if (d === todayUnlock) btn.classList.add('is-today');
                     if (isViewed(d)) btn.classList.add('is-viewed');
                     btn.textContent = 'day ' + card.dataset.day;
                     btn.addEventListener('click', function () {
