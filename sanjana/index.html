@@ -116,6 +116,161 @@
             font-weight: 500;
         }
 
+        .home-actions {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.65rem;
+            margin-top: 1.25rem;
+        }
+
+        .btn-today-wrap {
+            position: relative;
+            display: inline-block;
+        }
+
+        .btn-today-wrap.is-before-start:hover::after {
+            content: "wait till june 6!";
+            position: absolute;
+            left: 50%;
+            bottom: calc(100% + 0.5rem);
+            transform: translateX(-50%);
+            padding: 0.4rem 0.65rem;
+            font-size: 0.72rem;
+            letter-spacing: 0.04em;
+            white-space: nowrap;
+            color: var(--text);
+            background: var(--surface);
+            border: 1px solid var(--pink);
+            pointer-events: none;
+            z-index: 2;
+        }
+
+        .btn-today {
+            font-family: inherit;
+            font-size: 0.8rem;
+            font-weight: 500;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            padding: 0.85rem 1.5rem;
+            border: 2px solid var(--pink);
+            background: var(--pink);
+            color: #fff;
+            cursor: pointer;
+        }
+
+        .btn-today:hover:not(:disabled) {
+            background: var(--pink-dark);
+            border-color: var(--pink-dark);
+        }
+
+        .btn-today:disabled {
+            opacity: 0.45;
+            cursor: not-allowed;
+        }
+
+        .btn-today.is-viewed {
+            background: var(--surface);
+            color: var(--pink);
+        }
+
+        .btn-today.is-viewed:hover:not(:disabled) {
+            background: var(--pink-muted);
+        }
+
+        .btn-hint {
+            margin: 0;
+            font-size: 0.78rem;
+            color: var(--text-soft);
+            text-align: center;
+            max-width: 360px;
+        }
+
+        .home-status {
+            margin: 0.75rem 0 0;
+            font-size: 0.85rem;
+            color: var(--text-soft);
+            text-align: center;
+        }
+
+        .today-view {
+            display: none;
+            max-width: 420px;
+            margin: 0 auto 2rem;
+        }
+
+        .today-view.is-visible {
+            display: block;
+        }
+
+        .today-view .day-card {
+            margin: 0;
+        }
+
+        .btn-back {
+            display: block;
+            width: 100%;
+            margin-top: 1rem;
+            padding: 0.6rem;
+            font-family: inherit;
+            font-size: 0.72rem;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            background: transparent;
+            border: 1px solid var(--border-light);
+            color: var(--text-soft);
+            cursor: pointer;
+        }
+
+        .btn-back:hover {
+            border-color: var(--pink);
+            color: var(--pink);
+        }
+
+        .archive {
+            margin-bottom: 2rem;
+        }
+
+        .archive-title {
+            margin: 0 0 0.75rem;
+            font-family: "Cormorant Garamond", Georgia, serif;
+            font-size: 1.15rem;
+            color: var(--pink);
+            text-align: center;
+        }
+
+        .archive-list {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+
+        .archive-btn {
+            font-family: inherit;
+            font-size: 0.72rem;
+            letter-spacing: 0.04em;
+            padding: 0.45rem 0.7rem;
+            border: 1px solid var(--border-light);
+            background: var(--surface);
+            color: var(--text-soft);
+            cursor: pointer;
+        }
+
+        .archive-btn:hover {
+            border-color: var(--pink);
+            color: var(--pink);
+        }
+
+        .archive-btn.is-viewed::after {
+            content: " · opened";
+            color: var(--pink);
+        }
+
+        .cards-source {
+            display: none;
+        }
+
         .timeline-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -270,14 +425,31 @@
             <h1>For Sanjana</h1>
             <p class="subtitle">A little daily love page while I am away</p>
             <p class="note">
-                Open one memory each day from <strong>June 6</strong> to <strong>June 19</strong>.
-                Each card has a photo, a caption, and a little note from me to you.
+                One new memory unlocks each day at <strong>12:00 am PT</strong> from <strong>June 6</strong> to <strong>June 19</strong>.
             </p>
+            <div class="home-actions">
+                <span class="btn-today-wrap is-before-start" id="today-btn-wrap">
+                    <button type="button" class="btn-today" id="today-btn" disabled>see today's card!</button>
+                </span>
+                <p class="btn-hint" id="btn-hint"></p>
+            </div>
+            <p class="home-status" id="home-status"></p>
         </section>
 
-        <section class="timeline-grid">
+        <section class="today-view" id="today-view" aria-live="polite">
+            <div id="today-slot"></div>
+            <button type="button" class="btn-back" id="back-btn">back to home</button>
+        </section>
 
-            <article class="day-card">
+        <section class="archive" id="archive" hidden>
+            <h2 class="archive-title">past days</h2>
+            <div class="archive-list" id="archive-list"></div>
+        </section>
+
+        <section class="cards-source" id="cards-source" aria-hidden="true">
+        <div class="timeline-grid">
+
+            <article class="day-card" data-unlock="2026-06-06" data-day="1">
                 <h2 class="day-title">Day 1</h2>
                 <p class="day-date">June 6</p>
                 <div class="photo-placeholder"><img src="pics/day1.jpeg" alt="Day 1 memory"></div>
@@ -285,7 +457,7 @@
                 <p class="day-message">day one without u next to me and i already miss u sm. im proud of u for being kind and brave even when its hard. u dont have to be perfect today, js be u. im thinking abt u every second.</p>
             </article>
 
-            <article class="day-card">
+            <article class="day-card" data-unlock="2026-06-07" data-day="2">
                 <h2 class="day-title">Day 2</h2>
                 <p class="day-date">June 7</p>
                 <div class="photo-placeholder"><img src="pics/day2.jpeg" alt="Day 2 memory"></div>
@@ -293,7 +465,7 @@
                 <p class="day-message">good morning. whatever u have today, take it one step at a time. ur smarter and stronger than u think. drink water, eat something, and remember i believe in u more than anyone.</p>
             </article>
 
-            <article class="day-card">
+            <article class="day-card" data-unlock="2026-06-08" data-day="3">
                 <h2 class="day-title">Day 3</h2>
                 <p class="day-date">June 8</p>
                 <div class="photo-placeholder"><img src="pics/day3.jpeg" alt="Day 3 memory"></div>
@@ -301,7 +473,7 @@
                 <p class="day-message">if today feels slow or heavy thats ok. not every day has to feel amazing. i still love u on the quiet days, the tired days, and the messy days. give urself a little grace, u deserve it.</p>
             </article>
 
-            <article class="day-card">
+            <article class="day-card" data-unlock="2026-06-09" data-day="4">
                 <h2 class="day-title">Day 4</h2>
                 <p class="day-date">June 9</p>
                 <div class="photo-placeholder"><img src="pics/day4.jpeg" alt="Day 4 memory"></div>
@@ -309,7 +481,7 @@
                 <p class="day-message">u motivate me more than u know. the way u care abt people and keep trying when things are hard is rare. keep going. cant wait to hear everything u did while i was away.</p>
             </article>
 
-            <article class="day-card">
+            <article class="day-card" data-unlock="2026-06-10" data-day="5">
                 <h2 class="day-title">Day 5</h2>
                 <p class="day-date">June 10</p>
                 <div class="photo-placeholder"><img src="pics/day5.jpeg" alt="Day 5 memory"></div>
@@ -317,7 +489,7 @@
                 <p class="day-message">halfway through the first week and ur doing it. celebrate the small wins today even if they feel tiny. finished something hard? rest. had a good moment? hold onto it. im cheering for u from far away.</p>
             </article>
 
-            <article class="day-card">
+            <article class="day-card" data-unlock="2026-06-11" data-day="6">
                 <h2 class="day-title">Day 6</h2>
                 <p class="day-date">June 11</p>
                 <div class="photo-placeholder"><img src="pics/day6.jpeg" alt="Day 6 memory"></div>
@@ -325,7 +497,7 @@
                 <p class="day-message">reminder: ur allowed to have fun without feeling guilty. go do something that makes u happy. walk, music, friends, a show, whatever fills u up. ur joy matters to me. i want u to feel loved even when im not there in person.</p>
             </article>
 
-            <article class="day-card">
+            <article class="day-card" data-unlock="2026-06-12" data-day="7">
                 <h2 class="day-title">Day 7</h2>
                 <p class="day-date">June 12</p>
                 <div class="photo-placeholder"><img src="pics/day7.png" alt="Day 7 memory"></div>
@@ -333,7 +505,7 @@
                 <p class="day-message">one week. i hope u know how much i appreciate u, not js for the big moments but the little ones too. the texts, the patience, the way u make ordinary days feel special. tysm for being my person.</p>
             </article>
 
-            <article class="day-card">
+            <article class="day-card" data-unlock="2026-06-13" data-day="8">
                 <h2 class="day-title">Day 8</h2>
                 <p class="day-date">June 13</p>
                 <div class="photo-placeholder"><img src="pics/day8.jpeg" alt="Day 8 memory"></div>
@@ -341,7 +513,7 @@
                 <p class="day-message">on the days u doubt urself read this: ur enough. ur enough for ur friends, ur family, ur goals, and for me. keep showing up. im so lucky to call u mine.</p>
             </article>
 
-            <article class="day-card">
+            <article class="day-card" data-unlock="2026-06-14" data-day="9">
                 <h2 class="day-title">Day 9</h2>
                 <p class="day-date">June 14</p>
                 <div class="photo-placeholder"><img src="pics/day9.jpeg" alt="Day 9 memory"></div>
@@ -349,7 +521,7 @@
                 <p class="day-message">i hope today brings u at least one moment that makes u smile without trying. and if it doesnt thats ok too, tomorrow is another chance. i love u in every version of ur day.</p>
             </article>
 
-            <article class="day-card">
+            <article class="day-card" data-unlock="2026-06-15" data-day="10">
                 <h2 class="day-title">Day 10</h2>
                 <p class="day-date">June 15</p>
                 <div class="photo-placeholder"><img src="pics/day10.jpeg" alt="Day 10 memory"></div>
@@ -357,7 +529,7 @@
                 <p class="day-message">ur past the halfway point of this little countdown. that means were closer to hugging again than when i left. stay patient w/ urself. im counting down too.</p>
             </article>
 
-            <article class="day-card">
+            <article class="day-card" data-unlock="2026-06-16" data-day="11">
                 <h2 class="day-title">Day 11</h2>
                 <p class="day-date">June 16</p>
                 <div class="photo-placeholder"><img src="pics/day11.jpeg" alt="Day 11 memory"></div>
@@ -365,7 +537,7 @@
                 <p class="day-message">be proud of how far you've come in school, life, and us. it may not seem obvious or loud but growth is there and it's just u choosing to keep going. i see it, u should see it, and im always proud of u for it</p>
             </article>
 
-            <article class="day-card">
+            <article class="day-card" data-unlock="2026-06-17" data-day="12">
                 <h2 class="day-title">Day 12</h2>
                 <p class="day-date">June 17</p>
                 <div class="photo-placeholder"><img src="pics/day12.jpeg" alt="Day 12 memory"></div>
@@ -373,7 +545,7 @@
                 <p class="day-message">almost home soon! remember ur not alone - u have me, ur parents, ur friends, and so many others who love and care about you. please always talk to me or anyone else when u feel down, and don't ever feel guilty or downplay what u feel bc its always valid</p>
             </article>
 
-            <article class="day-card">
+            <article class="day-card" data-unlock="2026-06-18" data-day="13">
                 <h2 class="day-title">Day 13</h2>
                 <p class="day-date">June 18</p>
                 <div class="photo-placeholder"><img src="pics/day13.jpeg" alt="Day 13 memory"></div>
@@ -381,7 +553,7 @@
                 <p class="day-message">one more sleep until i see u again. tysm for waiting, for trusting us, and for being so patient while i was away. u made this trip easier js by being u.</p>
             </article>
 
-            <article class="day-card">
+            <article class="day-card" data-unlock="2026-06-19" data-day="14">
                 <h2 class="day-title">Day 14</h2>
                 <p class="day-date">June 19</p>
                 <div class="photo-placeholder"><img src="pics/day14.jpeg" alt="Day 14 memory"></div>
@@ -389,9 +561,174 @@
                 <p class="day-message">today is the day. i missed u so much. tysm for opening a little piece of this gift every day, i hope it made u feel loved. now come here. i have a lot of hugs saved up for u.</p>
             </article>
 
+        </div>
         </section>
 
         <footer>I love you so much - Alex</footer>
     </main>
+
+    <script>
+        (function () {
+            const TZ = 'America/Los_Angeles';
+            const START = '2026-06-06';
+            const END = '2026-06-19';
+            const STORAGE_PREFIX = 'sanjana-viewed-';
+
+            const todayBtn = document.getElementById('today-btn');
+            const todayBtnWrap = document.getElementById('today-btn-wrap');
+            const btnHint = document.getElementById('btn-hint');
+            const homeStatus = document.getElementById('home-status');
+            const todayView = document.getElementById('today-view');
+            const todaySlot = document.getElementById('today-slot');
+            const backBtn = document.getElementById('back-btn');
+            const archive = document.getElementById('archive');
+            const archiveList = document.getElementById('archive-list');
+            const cards = Array.from(document.querySelectorAll('.day-card[data-unlock]'));
+
+            function todayPT() {
+                return new Intl.DateTimeFormat('en-CA', { timeZone: TZ }).format(new Date());
+            }
+
+            function isUnlocked(unlockDate) {
+                return todayPT() >= unlockDate;
+            }
+
+            function getTodayUnlockDate() {
+                const t = todayPT();
+                if (t < START || t > END) return null;
+                return t;
+            }
+
+            function isViewed(unlockDate) {
+                return localStorage.getItem(STORAGE_PREFIX + unlockDate) === '1';
+            }
+
+            function markViewed(unlockDate) {
+                localStorage.setItem(STORAGE_PREFIX + unlockDate, '1');
+            }
+
+            function formatDisplayDate(iso) {
+                const [y, m, d] = iso.split('-').map(Number);
+                return new Date(y, m - 1, d).toLocaleDateString('en-US', {
+                    month: 'long',
+                    day: 'numeric',
+                    timeZone: TZ
+                });
+            }
+
+            function showCard(unlockDate) {
+                const source = document.querySelector('.day-card[data-unlock="' + unlockDate + '"]');
+                if (!source) return;
+
+                todaySlot.innerHTML = '';
+                todaySlot.appendChild(source.cloneNode(true));
+                todayView.classList.add('is-visible');
+                todayView.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+
+            function hideCardView() {
+                todayView.classList.remove('is-visible');
+                todaySlot.innerHTML = '';
+            }
+
+            function updateTodayButton() {
+                const todayUnlock = getTodayUnlockDate();
+                const beforeStart = todayPT() < START;
+                const afterEnd = todayPT() > END;
+
+                todayBtn.classList.remove('is-viewed');
+                btnHint.textContent = '';
+                homeStatus.textContent = '';
+
+                if (beforeStart) {
+                    todayBtnWrap.classList.add('is-before-start');
+                    todayBtn.disabled = true;
+                    todayBtn.textContent = "see today's card!";
+                    homeStatus.textContent = 'your first card unlocks june 6 at 12:00 am pt.';
+                    return;
+                }
+
+                todayBtnWrap.classList.remove('is-before-start');
+
+                if (afterEnd) {
+                    todayBtn.disabled = true;
+                    todayBtn.textContent = "see today's card!";
+                    homeStatus.textContent = 'all 14 days are unlocked. revisit any day below.';
+                    return;
+                }
+
+                if (!todayUnlock || !isUnlocked(todayUnlock)) {
+                    todayBtn.disabled = true;
+                    todayBtn.textContent = "see today's card!";
+                    homeStatus.textContent = "today's card isn't available yet.";
+                    return;
+                }
+
+                todayBtn.disabled = false;
+                const viewed = isViewed(todayUnlock);
+                if (viewed) {
+                    todayBtn.classList.add('is-viewed');
+                    todayBtn.textContent = "see today's card again";
+                    btnHint.textContent = 'you already opened today\'s card · tap to view again';
+                } else {
+                    todayBtn.textContent = "see today's card!";
+                    btnHint.textContent = 'unlocks at 12:00 am pt · ' + formatDisplayDate(todayUnlock);
+                }
+            }
+
+            function buildArchive() {
+                const todayUnlock = getTodayUnlockDate();
+                const unlocked = cards.filter(function (c) {
+                    const d = c.dataset.unlock;
+                    return isUnlocked(d) && d !== todayUnlock;
+                });
+
+                archiveList.innerHTML = '';
+
+                if (unlocked.length === 0) {
+                    archive.hidden = true;
+                    return;
+                }
+
+                archive.hidden = false;
+                unlocked.forEach(function (card) {
+                    const d = card.dataset.unlock;
+                    const btn = document.createElement('button');
+                    btn.type = 'button';
+                    btn.className = 'archive-btn';
+                    if (isViewed(d)) btn.classList.add('is-viewed');
+                    btn.textContent = 'day ' + card.dataset.day;
+                    btn.addEventListener('click', function () {
+                        showCard(d);
+                        if (!isViewed(d)) {
+                            markViewed(d);
+                            buildArchive();
+                        }
+                    });
+                    archiveList.appendChild(btn);
+                });
+            }
+
+            todayBtn.addEventListener('click', function () {
+                const todayUnlock = getTodayUnlockDate();
+                if (!todayUnlock || !isUnlocked(todayUnlock)) return;
+
+                showCard(todayUnlock);
+                markViewed(todayUnlock);
+                updateTodayButton();
+                buildArchive();
+            });
+
+            backBtn.addEventListener('click', hideCardView);
+
+            updateTodayButton();
+            buildArchive();
+
+            setInterval(function () {
+                updateTodayButton();
+                buildArchive();
+            }, 60000);
+        })();
+    </script>
 </body>
 </html>
