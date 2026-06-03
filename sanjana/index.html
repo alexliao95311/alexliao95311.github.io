@@ -3,21 +3,395 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>sanjana</title>
+    <title>For Sanjana</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,400&family=Inter:wght@400;500&display=swap" rel="stylesheet">
     <style>
+        :root {
+            --bg: #fff8fa;
+            --surface: #ffffff;
+            --pink: #e6007a;
+            --pink-dark: #b8005f;
+            --pink-muted: #f8d4e4;
+            --text: #1a0a12;
+            --text-soft: #5c3048;
+            --border: #e6007a;
+            --border-light: #f0b8d0;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
         body {
             margin: 0;
             min-height: 100vh;
+            font-family: "Inter", system-ui, sans-serif;
+            font-weight: 400;
+            color: var(--text);
+            background-color: var(--bg);
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120' viewBox='0 0 120 120'%3E%3Cg fill='none' stroke='%23e6007a' stroke-width='1' opacity='0.12'%3E%3Ccircle cx='60' cy='52' r='4'/%3E%3Cellipse cx='60' cy='38' rx='6' ry='10' transform='rotate(0 60 52)'/%3E%3Cellipse cx='60' cy='38' rx='6' ry='10' transform='rotate(72 60 52)'/%3E%3Cellipse cx='60' cy='38' rx='6' ry='10' transform='rotate(144 60 52)'/%3E%3Cellipse cx='60' cy='38' rx='6' ry='10' transform='rotate(216 60 52)'/%3E%3Cellipse cx='60' cy='38' rx='6' ry='10' transform='rotate(288 60 52)'/%3E%3Cline x1='60' y1='56' x2='60' y2='72'/%3E%3C/g%3E%3C/svg%3E");
+            line-height: 1.55;
+        }
+
+        .bg-deco {
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            z-index: 0;
+            overflow: hidden;
+        }
+
+        .bg-deco svg {
+            position: absolute;
+            color: var(--pink);
+        }
+
+        .flower-tl { top: 1.5rem; left: 1rem; width: 88px; height: 88px; opacity: 0.35; }
+        .flower-tr { top: 2rem; right: 1rem; width: 72px; height: 72px; opacity: 0.28; transform: scaleX(-1); }
+        .flower-bl { bottom: 2rem; left: 0.5rem; width: 100px; height: 100px; opacity: 0.22; }
+        .flower-br { bottom: 1.5rem; right: 0.5rem; width: 80px; height: 80px; opacity: 0.3; transform: scaleX(-1); }
+
+        .page {
+            position: relative;
+            z-index: 1;
+            max-width: 1080px;
+            margin: 0 auto;
+            padding: 2.5rem 1.25rem 3.5rem;
+        }
+
+        .hero {
+            background: var(--surface);
+            border: 2px solid var(--border);
+            padding: 2rem 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .hero-flowers {
+            display: flex;
+            justify-content: center;
+            gap: 1.25rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero-flowers svg {
+            width: 36px;
+            height: 36px;
+            color: var(--pink);
+        }
+
+        h1 {
+            margin: 0 0 0.35rem;
+            font-family: "Cormorant Garamond", Georgia, serif;
+            font-size: clamp(2.25rem, 6vw, 3.25rem);
+            font-weight: 600;
+            color: var(--pink);
+            text-align: center;
+            letter-spacing: 0.02em;
+            line-height: 1.1;
+        }
+
+        .subtitle {
+            margin: 0;
+            text-align: center;
+            color: var(--text-soft);
+            font-size: 0.95rem;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+        }
+
+        .note {
+            margin: 1.25rem auto 0;
+            max-width: 520px;
+            padding: 0.85rem 0;
+            text-align: center;
+            font-size: 0.9rem;
+            color: var(--text-soft);
+            border-top: 1px solid var(--border-light);
+        }
+
+        .note strong {
+            color: var(--pink-dark);
+            font-weight: 500;
+        }
+
+        .timeline-grid {
             display: grid;
-            place-items: center;
-            font-family: Arial, sans-serif;
-            font-size: 2rem;
-            background: #ffffff;
-            color: #000000;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.25rem;
+        }
+
+        .day-card {
+            background: var(--surface);
+            border: 1px solid var(--border-light);
+            border-top: 3px solid var(--pink);
+            padding: 1rem;
+        }
+
+        .day-title {
+            margin: 0 0 0.15rem;
+            font-family: "Cormorant Garamond", Georgia, serif;
+            font-size: 1.35rem;
+            font-weight: 600;
+            color: var(--pink);
+            letter-spacing: 0.02em;
+        }
+
+        .day-date {
+            margin: 0 0 0.75rem;
+            color: var(--text-soft);
+            font-size: 0.75rem;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+        }
+
+        .photo-placeholder {
+            width: 100%;
+            aspect-ratio: 4 / 3;
+            border: 1px solid var(--border-light);
+            background: var(--bg);
+            margin-bottom: 0.5rem;
+            overflow: hidden;
+        }
+
+        .photo-placeholder img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .photo-caption {
+            margin: 0 0 0.75rem;
+            font-size: 0.85rem;
+            font-style: italic;
+            color: var(--text-soft);
+            padding: 0.5rem 0 0.5rem 0.65rem;
+            border-left: 2px solid var(--pink);
+            background: var(--pink-muted);
+        }
+
+        .day-message {
+            margin: 0;
+            padding: 0.7rem 0.75rem;
+            font-size: 0.88rem;
+            color: var(--text);
+            line-height: 1.6;
+            border: 1px solid var(--border-light);
+            background: var(--bg);
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 2.5rem;
+            padding-top: 1.25rem;
+            border-top: 1px solid var(--border-light);
+            color: var(--text-soft);
+            font-size: 0.8rem;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+        }
+
+        @media (max-width: 640px) {
+            .page {
+                padding-top: 1.5rem;
+            }
+            .hero {
+                padding: 1.5rem 1rem;
+            }
+            .flower-tl, .flower-tr { width: 56px; height: 56px; }
+            .flower-bl, .flower-br { width: 64px; height: 64px; }
         }
     </style>
 </head>
 <body>
-    sanjana
+    <div class="bg-deco" aria-hidden="true">
+        <svg class="flower-tl" viewBox="0 0 80 80" fill="none" stroke="currentColor" stroke-width="1.5">
+            <circle cx="40" cy="36" r="5" fill="currentColor" stroke="none" opacity="0.9"/>
+            <ellipse cx="40" cy="22" rx="9" ry="14" fill="none"/>
+            <ellipse cx="40" cy="22" rx="9" ry="14" transform="rotate(72 40 36)" fill="none"/>
+            <ellipse cx="40" cy="22" rx="9" ry="14" transform="rotate(144 40 36)" fill="none"/>
+            <ellipse cx="40" cy="22" rx="9" ry="14" transform="rotate(216 40 36)" fill="none"/>
+            <ellipse cx="40" cy="22" rx="9" ry="14" transform="rotate(288 40 36)" fill="none"/>
+            <path d="M40 41v18M40 59c-8 4-14 0-14 0M40 59c8 4 14 0 14 0"/>
+        </svg>
+        <svg class="flower-tr" viewBox="0 0 80 80" fill="none" stroke="currentColor" stroke-width="1.5">
+            <circle cx="40" cy="36" r="5" fill="currentColor" stroke="none" opacity="0.9"/>
+            <ellipse cx="40" cy="22" rx="9" ry="14" fill="none"/>
+            <ellipse cx="40" cy="22" rx="9" ry="14" transform="rotate(72 40 36)" fill="none"/>
+            <ellipse cx="40" cy="22" rx="9" ry="14" transform="rotate(144 40 36)" fill="none"/>
+            <ellipse cx="40" cy="22" rx="9" ry="14" transform="rotate(216 40 36)" fill="none"/>
+            <ellipse cx="40" cy="22" rx="9" ry="14" transform="rotate(288 40 36)" fill="none"/>
+            <path d="M40 41v14"/>
+        </svg>
+        <svg class="flower-bl" viewBox="0 0 80 80" fill="none" stroke="currentColor" stroke-width="1.25">
+            <circle cx="40" cy="38" r="4" fill="currentColor" stroke="none"/>
+            <path d="M40 18c0-8 12-12 18-6 6 6 2 18-6 18M40 18c0-8-12-12-18-6-6 6-2 18 6 18M40 42c-10 0-16 8-12 16 4 8 16 6 20-2M40 42c10 0 16 8 12 16-4 8-16 6-20-2"/>
+        </svg>
+        <svg class="flower-br" viewBox="0 0 80 80" fill="none" stroke="currentColor" stroke-width="1.5">
+            <circle cx="40" cy="36" r="5" fill="currentColor" stroke="none"/>
+            <ellipse cx="40" cy="22" rx="9" ry="14" fill="none"/>
+            <ellipse cx="40" cy="22" rx="9" ry="14" transform="rotate(72 40 36)" fill="none"/>
+            <ellipse cx="40" cy="22" rx="9" ry="14" transform="rotate(144 40 36)" fill="none"/>
+            <ellipse cx="40" cy="22" rx="9" ry="14" transform="rotate(216 40 36)" fill="none"/>
+            <ellipse cx="40" cy="22" rx="9" ry="14" transform="rotate(288 40 36)" fill="none"/>
+        </svg>
+    </div>
+
+    <main class="page">
+        <section class="hero">
+            <div class="hero-flowers" aria-hidden="true">
+                <svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.25">
+                    <circle cx="20" cy="18" r="3" fill="currentColor" stroke="none"/>
+                    <ellipse cx="20" cy="10" rx="5" ry="8" fill="none"/>
+                    <ellipse cx="20" cy="10" rx="5" ry="8" transform="rotate(72 20 18)" fill="none"/>
+                    <ellipse cx="20" cy="10" rx="5" ry="8" transform="rotate(144 20 18)" fill="none"/>
+                    <ellipse cx="20" cy="10" rx="5" ry="8" transform="rotate(216 20 18)" fill="none"/>
+                    <ellipse cx="20" cy="10" rx="5" ry="8" transform="rotate(288 20 18)" fill="none"/>
+                </svg>
+                <svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.25">
+                    <circle cx="20" cy="18" r="3" fill="currentColor" stroke="none"/>
+                    <ellipse cx="20" cy="10" rx="5" ry="8" fill="none"/>
+                    <ellipse cx="20" cy="10" rx="5" ry="8" transform="rotate(72 20 18)" fill="none"/>
+                    <ellipse cx="20" cy="10" rx="5" ry="8" transform="rotate(144 20 18)" fill="none"/>
+                    <ellipse cx="20" cy="10" rx="5" ry="8" transform="rotate(216 20 18)" fill="none"/>
+                    <ellipse cx="20" cy="10" rx="5" ry="8" transform="rotate(288 20 18)" fill="none"/>
+                </svg>
+                <svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.25">
+                    <circle cx="20" cy="18" r="3" fill="currentColor" stroke="none"/>
+                    <ellipse cx="20" cy="10" rx="5" ry="8" fill="none"/>
+                    <ellipse cx="20" cy="10" rx="5" ry="8" transform="rotate(72 20 18)" fill="none"/>
+                    <ellipse cx="20" cy="10" rx="5" ry="8" transform="rotate(144 20 18)" fill="none"/>
+                    <ellipse cx="20" cy="10" rx="5" ry="8" transform="rotate(216 20 18)" fill="none"/>
+                    <ellipse cx="20" cy="10" rx="5" ry="8" transform="rotate(288 20 18)" fill="none"/>
+                </svg>
+            </div>
+            <h1>For Sanjana</h1>
+            <p class="subtitle">A little daily love page while I am away</p>
+            <p class="note">
+                Open one memory each day from <strong>June 6</strong> to <strong>June 19</strong>.
+                Each card has a photo, a caption, and a little note from me to you.
+            </p>
+        </section>
+
+        <section class="timeline-grid">
+
+            <article class="day-card">
+                <h2 class="day-title">Day 1</h2>
+                <p class="day-date">June 6</p>
+                <div class="photo-placeholder"><img src="pics/day1.jpeg" alt="Day 1 memory"></div>
+                <p class="photo-caption">ran across the field and i loved the sunset; i beat u in thumb wars yay!</p>
+                <p class="day-message">day one without u next to me and i already miss u sm. im proud of u for being kind and brave even when its hard. u dont have to be perfect today, js be u. im thinking abt u every second.</p>
+            </article>
+
+            <article class="day-card">
+                <h2 class="day-title">Day 2</h2>
+                <p class="day-date">June 7</p>
+                <div class="photo-placeholder"><img src="pics/day2.jpeg" alt="Day 2 memory"></div>
+                <p class="photo-caption">wow necklace is so pretty i wonder where its from :) that day was so fun and we both locked in at K1 speed (medals!)</p>
+                <p class="day-message">good morning. whatever u have today, take it one step at a time. ur smarter and stronger than u think. drink water, eat something, and remember i believe in u more than anyone.</p>
+            </article>
+
+            <article class="day-card">
+                <h2 class="day-title">Day 3</h2>
+                <p class="day-date">June 8</p>
+                <div class="photo-placeholder"><img src="pics/day3.jpeg" alt="Day 3 memory"></div>
+                <p class="photo-caption">my fav candle "pic of what you're doing" image from u. math with you was so fun i hope we have sm classes next year tg</p>
+                <p class="day-message">if today feels slow or heavy thats ok. not every day has to feel amazing. i still love u on the quiet days, the tired days, and the messy days. give urself a little grace, u deserve it.</p>
+            </article>
+
+            <article class="day-card">
+                <h2 class="day-title">Day 4</h2>
+                <p class="day-date">June 9</p>
+                <div class="photo-placeholder"><img src="pics/day4.jpeg" alt="Day 4 memory"></div>
+                <p class="photo-caption">post-apush taco bell + target run! u may have beaten me at mario kart but we'll run it back soon don't expect it to last. i love how u look so happy z</p>
+                <p class="day-message">u motivate me more than u know. the way u care abt people and keep trying when things are hard is rare. keep going. cant wait to hear everything u did while i was away.</p>
+            </article>
+
+            <article class="day-card">
+                <h2 class="day-title">Day 5</h2>
+                <p class="day-date">June 10</p>
+                <div class="photo-placeholder"><img src="pics/day5.jpeg" alt="Day 5 memory"></div>
+                <p class="photo-caption">chick-fil-a after BVALs day 1! 10/10 sundae and 10/10 picture it's so cute </p>
+                <p class="day-message">halfway through the first week and ur doing it. celebrate the small wins today even if they feel tiny. finished something hard? rest. had a good moment? hold onto it. im cheering for u from far away.</p>
+            </article>
+
+            <article class="day-card">
+                <h2 class="day-title">Day 6</h2>
+                <p class="day-date">June 11</p>
+                <div class="photo-placeholder"><img src="pics/day6.jpeg" alt="Day 6 memory"></div>
+                <p class="photo-caption">post-prom taco bell run w/ ur friends we were both sooo tired but that was a blessing in disguise cuz this picture is super cute </p>
+                <p class="day-message">reminder: ur allowed to have fun without feeling guilty. go do something that makes u happy. walk, music, friends, a show, whatever fills u up. ur joy matters to me. i want u to feel loved even when im not there in person.</p>
+            </article>
+
+            <article class="day-card">
+                <h2 class="day-title">Day 7</h2>
+                <p class="day-date">June 12</p>
+                <div class="photo-placeholder"><img src="pics/day7.png" alt="Day 7 memory"></div>
+                <p class="photo-caption">top 5 most nerve wracking moments oat: promposal! lwk didnt manage time well but it was successful and u said yes! and ofc prom was amazing</p>
+                <p class="day-message">one week. i hope u know how much i appreciate u, not js for the big moments but the little ones too. the texts, the patience, the way u make ordinary days feel special. tysm for being my person.</p>
+            </article>
+
+            <article class="day-card">
+                <h2 class="day-title">Day 8</h2>
+                <p class="day-date">June 13</p>
+                <div class="photo-placeholder"><img src="pics/day8.jpeg" alt="Day 8 memory"></div>
+                <p class="photo-caption">one of our first dates - stoneridge ft. mid ahh boba w/ seeds... i still cringe when watching the video version of this pic cuz why was i so awkward in the last pose </p>
+                <p class="day-message">on the days u doubt urself read this: ur enough. ur enough for ur friends, ur family, ur goals, and for me. keep showing up. im so lucky to call u mine.</p>
+            </article>
+
+            <article class="day-card">
+                <h2 class="day-title">Day 9</h2>
+                <p class="day-date">June 14</p>
+                <div class="photo-placeholder"><img src="pics/day9.jpeg" alt="Day 9 memory"></div>
+                <p class="photo-caption">lwk one of my fav prom pics i js really like the bg and ur dress and how look happy together </p>
+                <p class="day-message">i hope today brings u at least one moment that makes u smile without trying. and if it doesnt thats ok too, tomorrow is another chance. i love u in every version of ur day.</p>
+            </article>
+
+            <article class="day-card">
+                <h2 class="day-title">Day 10</h2>
+                <p class="day-date">June 15</p>
+                <div class="photo-placeholder"><img src="pics/day10.jpeg" alt="Day 10 memory"></div>
+                <p class="photo-caption">one of the many fun swim carpools! glad u dont have red paint on ur face (is this ebk?)</p>
+                <p class="day-message">ur past the halfway point of this little countdown. that means were closer to hugging again than when i left. stay patient w/ urself. im counting down too.</p>
+            </article>
+
+            <article class="day-card">
+                <h2 class="day-title">Day 11</h2>
+                <p class="day-date">June 16</p>
+                <div class="photo-placeholder"><img src="pics/day11.jpeg" alt="Day 11 memory"></div>
+                <p class="photo-caption">BVALs! this pic is so nice i have two medals! (the joke is ur a medal - a much better one than im wearing). i like the pool background too its aesthetic. unfortunately will not put in anagammai dylan and andrew photobombing us</p>
+                <p class="day-message">be proud of how far you've come in school, life, and us. it may not seem obvious or loud but growth is there and it's just u choosing to keep going. i see it, u should see it, and im always proud of u for it</p>
+            </article>
+
+            <article class="day-card">
+                <h2 class="day-title">Day 12</h2>
+                <p class="day-date">June 17</p>
+                <div class="photo-placeholder"><img src="pics/day12.jpeg" alt="Day 12 memory"></div>
+                <p class="photo-caption">the lot! i like the jacket and the t shirt. i also liked our hug on the roof of the parking lot it was rly nice and i hope we can share more of those moments. also 10/10 udon </p>
+                <p class="day-message">almost home soon! remember ur not alone - u have me, ur parents, ur friends, and so many others who love and care about you. please always talk to me or anyone else when u feel down, and don't ever feel guilty or downplay what u feel bc its always valid</p>
+            </article>
+
+            <article class="day-card">
+                <h2 class="day-title">Day 13</h2>
+                <p class="day-date">June 18</p>
+                <div class="photo-placeholder"><img src="pics/day13.jpeg" alt="Day 13 memory"></div>
+                <p class="photo-caption">nails! nails! nails! there is still leftover specks of nail polish even today (it's june 3rd at the time of writing) and i think it lwk might last me another two weeks lmao</p>
+                <p class="day-message">one more sleep until i see u again. tysm for waiting, for trusting us, and for being so patient while i was away. u made this trip easier js by being u.</p>
+            </article>
+
+            <article class="day-card">
+                <h2 class="day-title">Day 14</h2>
+                <p class="day-date">June 19</p>
+                <div class="photo-placeholder"><img src="pics/day14.jpeg" alt="Day 14 memory"></div>
+                <p class="photo-caption">wow look at these two strong swag people we should hit the gym together more it was hella fun and ill lock in on getting my mothers avaiablility lmao </p>
+                <p class="day-message">today is the day. i missed u so much. tysm for opening a little piece of this gift every day, i hope it made u feel loved. now come here. i have a lot of hugs saved up for u.</p>
+            </article>
+
+        </section>
+
+        <footer>I love you so much - Alex</footer>
+    </main>
 </body>
 </html>
